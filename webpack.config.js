@@ -1,12 +1,10 @@
-var debug = process.env.NODE_ENV !== "production";
+const debug = process.env.NODE_ENV !== "production";
 var webpack = require('webpack');
 
 module.exports = {
-    context: __dirname + "/public",
+    context: __dirname + "/public/js",
     devtool: debug ? "inline-sourcemap" : null,
-    entry: {
-        path: "./js/script.js"
-    },
+    entry: "./home",
     module: {
         loaders: [
             {
@@ -21,10 +19,10 @@ module.exports = {
         ]
     },
     output: {
-        path: __dirname + "public/js",
-        filename: "client.min.js",
-        library: "People"
+        path: __dirname + "/public/js/min",
+        filename: "[name].min.js"
     },
+    watch: true,
     plugins: debug ? [] : [
         new webpack.optimize.DedupePlugin(),
         new webpack.optimize.OccurenceOrderPlugin(),

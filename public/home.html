@@ -1,0 +1,8 @@
+<h1>Home</h1>
+<div ng-controller='homeCtrl'>
+    <ul class="nav nav-pills">
+        <li ng-repeat='(key, value) in links'>
+            <a href="#/{{key}}">{{value}}</a>
+        </li>
+    </ul>
+</div>
